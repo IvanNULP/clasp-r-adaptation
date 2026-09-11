@@ -20,4 +20,4 @@ See `ENVIRONMENT.md` and `requirements.txt`.
 - `src/evaluation/` — LODO selector, unified comparison, final policy
 
 Result artefacts (per-instance CSVs, confusion matrices) are archived
-separately on Zenodo (Data and result artefacts: https://doi.org/10.5281/zenodo.22708682); see the manuscript's data availability statement.
+separately on Zenodo (Data and result artefacts: https://doi.org/10.5281/zenodo.22708682).
