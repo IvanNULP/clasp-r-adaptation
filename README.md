@@ -1,52 +1,23 @@
 # Cross-Dataset Adaptation for Intrusion Detection — Experiment Code
 
-Code and result artefacts for reproducing the experiments: dataset
-unification, adaptation operators, frozen classifiers, and the evaluation
-protocol (leave-one-domain-pair-out selector, transport benchmark,
-negative-transfer and directional-asymmetry analysis).
+Code for reproducing the adaptation experiments: dataset unification,
+adaptation operators (CORAL, class-conditional CORAL, BBSE, CLASP,
+quantile/unbalanced/partial transport), the confidence-based router,
+and the evaluation protocol (leave-one-domain-pair-out selector,
+transport benchmark, negative-transfer and directional-asymmetry analysis).
 
 ## Datasets
-
-Not included. Each of the four datasets is obtained from its original
-authors under their own terms; see `DATA.md` for exact sources and the
-preprocessing needed to reach the unified feature representation this code
-expects as input.
+Not included — see `DATA.md`.
 
 ## Environment
+See `ENVIRONMENT.md` and `requirements.txt`.
 
-```bash
-python3 -m venv venv && source venv/bin/activate
-pip install -r requirements.txt
-```
+## Structure
+- `src/data_prep/` — feature unification, train/test partitioning
+- `src/adaptation/` — CORAL, BBSE, CLASP, transport operators
+- `src/router_history/` — confidence-based router (v6-v7)
+- `src/audit/` — identifiability, consistency, and robustness audits
+- `src/evaluation/` — LODO selector, unified comparison, final policy
 
-Exact versions used to produce the committed results are pinned in
-`requirements.txt`. Hardware and OS details are in `ENVIRONMENT.md`.
-
-## Running
-
-```bash
-python src/data_prep/unify_features.py --dataset all
-python src/data_prep/partition_deployment_domain.py --dataset all
-python src/data_prep/construct_transfer_instances.py
-python src/evaluation/train_classifiers.py --dataset all
-python src/audit/confusion_matrix_audit.py
-python src/adaptation/oracle_study.py
-python src/adaptation/run_operator.py --operator <coral|coral_bbse|tac|tac_bbse|qt|qt_bbse|uot|uot_bbse|pot|pot_bbse>
-python src/audit/consistency_audit.py
-python src/evaluation/build_response_features.py
-python src/evaluation/lodo_selector.py
-python src/evaluation/unified_comparison.py
-python src/evaluation/negative_transfer_profile.py
-python src/evaluation/directional_asymmetry.py
-python src/evaluation/derive_policy.py
-```
-
-Seeds, expected output shapes, and consistency checks for each step are
-documented in the docstring of the corresponding script.
-
-## Results
-
-`results/` holds the frozen artefacts these scripts produce: twelve
-confusion matrices, per-instance error tables for ten adaptation
-candidates, and aggregate comparison tables. These are the numbers
-reported in the associated manuscript.
+Result artefacts (per-instance CSVs, confusion matrices) are archived
+separately on Zenodo; see the manuscript's data availability statement.
