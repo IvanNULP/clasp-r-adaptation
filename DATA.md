@@ -1,13 +1,16 @@
 # Data Sources
 
 Four public network intrusion detection datasets, none redistributed here.
+All four were downloaded on 2026-08-11.
 
-| Dataset | Source | Obtained from |
+| Dataset | Source | Official page |
 |---|---|---|
-| CIC-IDS2017 | Canadian Institute for Cybersecurity, UNB | [insert URL / access date] |
-| UNSW-NB15 | Australian Centre for Cyber Security | [insert URL / access date] |
-| TON_IoT | UNSW Canberra Cyber | [insert URL / access date] |
-| CICIoT2023 | Canadian Institute for Cybersecurity | [insert URL / access date] |
+| CIC-IDS2017 | Canadian Institute for Cybersecurity, UNB | https://www.unb.ca/cic/datasets/ids-2017.html |
+| UNSW-NB15 | Australian Centre for Cyber Security, UNSW Canberra | https://research.unsw.edu.au/projects/unsw-nb15-dataset |
+| TON_IoT | UNSW Canberra Cyber | https://research.unsw.edu.au/projects/toniot-datasets |
+| CICIoT2023 | Canadian Institute for Cybersecurity, UNB | https://www.unb.ca/cic/datasets/iotdataset-2023.html |
+
+Citations for each dataset are given in the manuscript, Section 4.1.
 
 ## Unified representation
 
